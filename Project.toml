@@ -3,6 +3,10 @@ uuid = "b32ac82e-7bff-411f-a4ce-36f56044f3ca"
 authors = ["Owen Lynch <root@owenlynch.org> and contributors"]
 version = "0.1.0"
 
+[deps]
+Raylib_jll = "f9cae4b5-603c-5a13-b73f-1dfe71482639"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+
 [compat]
 julia = "1"
 
