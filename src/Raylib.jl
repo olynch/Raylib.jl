@@ -1,7 +1,7 @@
 module Raylib
 
 export Game, RayColor, WHITE, LIGHTGREY,
-  clear_background, draw_text, draw_circle, is_key_down,
+  clear_background, draw_text, draw_circle, draw_line, is_key_down,
   Keys
 
 using Raylib_jll
@@ -71,6 +71,10 @@ end
 draw_circle(v::AbstractVector{<:Real}, r::Real, c::RayColor) =
   ccall((:DrawCircleV, libraylib), Cvoid, (RayVector2, Cfloat, RayColor),
         RayVector2(v), convert(Float32, r), c)
+
+draw_line(v1::AbstractVector{<:Real}, v2::AbstractVector{<:Real}, r::Real, c::RayColor) =
+  ccall((:DrawLineEx, libraylib), Cvoid, (RayVector2, RayVector2, Cfloat, RayColor),
+        RayVector2(v1), RayVector2(v2), convert(Float32, r), c)
 
 is_key_down(k::Int) =
   ccall((:IsKeyDown, libraylib), Cuchar, (Cint,), k) == 1
